@@ -6,11 +6,29 @@
   "BACKEND_SECRET": "zih9cVFnC0J0otOAFXrj",
   "FRONTEND_URI": "http://localhost:3500",
   "BACKEND_URI": "http://localhost:3500",
+  "BROWSER_PAGE_SELECTORS": {
+    "APP": ".app",
+    "QRCODE": "canvas",
+    "CONVERSATION": "#pane-side",
+    "CONVERSATIONITEM": "._2UaNq"
+  },
+  "BROWSER_PAGE_MAX_NAVIGATION_PAGES": 5,
+  "BROWSER_PAGE_PLUGINS": [
+    {
+      "name": "hello",
+      "path": "/src/client-scripts/hello-world.js"
+    }
+  ],
+  "BROWSER_OPTIONS": {
+    "headless": false,
+    "devtools": true,
+    "product": "chrome"
+  },
   "CUSTOM_DEPENDENCIES": [
     {
       "name": "puppeteer",
       "package": "puppeteer"
     }
   ],
-  "CUSTOM_STATIC_ROUTES":[]
+  "CUSTOM_STATIC_ROUTES": []
 }

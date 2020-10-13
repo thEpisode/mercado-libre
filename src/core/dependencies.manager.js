@@ -16,6 +16,7 @@ class DependenciesManager {
       root,
       multerModule,
       eventBus,
+      fs: require('fs'),
       path: require('path'),
       aesjs: require('aes-js'),
       moment: require('moment'),
