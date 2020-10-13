@@ -25,6 +25,9 @@ class ClientController {
     this.config = config
   }
 
+  /**
+   * Load in memory frontend scripts to handle easily the code
+   */
   loadClientScripts () {
     this.scripts = this._browser.scripts.map(script => {
       script.data = this._dependencies.fs.readFileSync(this._path.join(this._root, script.path), 'utf8')

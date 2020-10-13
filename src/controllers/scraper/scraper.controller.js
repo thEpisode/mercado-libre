@@ -20,6 +20,9 @@ class ScraperController {
     this.injectClientScripts()
   }
 
+  /**
+   * Inject the frontend scripts to handle easily the data
+   */
   async injectClientScripts () {
     this._browser.scripts.map(async script => {
       await this.page.evaluate(script.data)
