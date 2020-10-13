@@ -5,11 +5,11 @@ function scrappingFunction (dependencies) {
   const _console = dependencies.console
   let bot = {}
 
-  const run = async (data) => {
+  const run = async _ => {
     scrapping()
   }
 
-  const scrapping = async (data) => {
+  const scrapping = async () => {
     try {
       _console.info('Executing scrapper function')
 
