@@ -86,6 +86,7 @@ class BotController {
     }
 
     console.log(categories)
+    /* TODO: Call a REST API to save the results */
   }
 }
 
