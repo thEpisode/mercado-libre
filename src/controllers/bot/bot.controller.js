@@ -5,6 +5,7 @@ class BotController {
     this._dependencies = dependencies
     this._utilities = dependencies.utilities
     this._console = dependencies.console
+    this._controllers = dependencies.controllers
   }
 
   async setupBot () {
@@ -54,7 +55,37 @@ class BotController {
       await this.client.navigateToNextPage(navigationLink.href)
     }
 
-    this._console.info(products.length)
+    this._console.info(`Found ${products.length} products in ${navigationLinks.length + 1} pages`)
+
+    this.groupProducts(products)
+  }
+
+  groupProducts (products) {
+    if (products.length <= 0) {
+      return
+    }
+
+    const categories = [{ name: products[0].name, products: [] }]
+
+    for (let i = 0; i < products.length; i++) {
+      const product = products[i]
+
+      for (let j = 0; j < categories.length; j++) {
+        const category = categories[j]
+
+        const distance = this._controllers.stringmatching.jaroWrinker(category.name, product.name)
+
+        if (distance > 0.70) {
+          category.products.push(product)
+          break
+        } else {
+          categories.push({ name: product.name, products: [product] })
+          break
+        }
+      }
+    }
+
+    console.log(categories)
   }
 }
 
