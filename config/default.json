@@ -1,0 +1,16 @@
+{
+  "JWT_SECRET": "NodeJSIsCool",
+  "SERVER_PORT": "3500",
+  "SERVER_VERSION": "4.0.0",
+  "SERVER_NAME": "meli server #1",
+  "BACKEND_SECRET": "zih9cVFnC0J0otOAFXrj",
+  "FRONTEND_URI": "http://localhost:3500",
+  "BACKEND_URI": "http://localhost:3500",
+  "CUSTOM_DEPENDENCIES": [
+    {
+      "name": "puppeteer",
+      "package": "puppeteer"
+    }
+  ],
+  "CUSTOM_STATIC_ROUTES":[]
+}
