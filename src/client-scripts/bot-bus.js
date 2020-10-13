@@ -22,11 +22,11 @@ class BotBus {
     maxLengthNavigation = maxLengthNavigation || 1
     const maxLengthNavigationSanitized = maxLengthNavigation <= links.length ? maxLengthNavigation : links.length
 
-    for (let i = 1; i <= maxLengthNavigationSanitized; i++) {
+    for (let i = 1; i < maxLengthNavigationSanitized; i++) {
       const link = links[i]
       if (link) {
         output.push({
-          link: link.href || ''
+          href: link.href || ''
         })
       }
     }

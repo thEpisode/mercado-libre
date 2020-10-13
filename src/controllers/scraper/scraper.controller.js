@@ -26,6 +26,16 @@ class ScraperController {
     })
   }
 
+  async navigateToNextPage (href) {
+    if (!href) {
+      return
+    }
+
+    await this.page.goto(href)
+    this.injectClientScripts()
+    return this.page.waitForSelector(this._browser.selectors.PAGE_LOGO, { visible: true })
+  }
+
   async getAllProducts () {
     const script = `window.BotBus.getAllProducts('${this._browser.selectors.PRODUCT_ITEM_CONTAINER}', '${this._browser.selectors.PRODUCT_ITEM_TITLE}', '${this._browser.selectors.PRODUCT_ITEM_PRICE}')`
     this._console.info('Getting products...')

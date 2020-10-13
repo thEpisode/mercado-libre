@@ -55,6 +55,10 @@ class ClientController {
   async getAllNavigationLinks () {
     return this.scraper.getAllNavigationLinks()
   }
+
+  async navigateToNextPage (href) {
+    return this.scraper.navigateToNextPage(href)
+  }
 }
 
 module.exports = ClientController

@@ -30,10 +30,31 @@ class BotController {
 
   async startScrapping () {
     await this.client.startSession()
-    const products = await this.client.getAllProducts()
-    const navigationLinks = await this.client.getAllNavigationLinks()
-    this._console.info(products)
-    this._console.info(navigationLinks)
+    let products = []
+    let navigationLinks = await this.client.getAllNavigationLinks()
+
+    if (!navigationLinks) {
+      return
+    }
+
+    navigationLinks = JSON.parse(navigationLinks)
+
+    for (const navigationLink of navigationLinks) {
+      let productsTmp = await this.client.getAllProducts()
+
+      if (!productsTmp) {
+        break
+      }
+
+      productsTmp = JSON.parse(productsTmp)
+
+      // Merge Arrays in one with ES6 Array spread
+      products = [...products, ...productsTmp]
+
+      await this.client.navigateToNextPage(navigationLink.href)
+    }
+
+    this._console.info(products.length)
   }
 }
 
