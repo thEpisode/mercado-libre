@@ -13,9 +13,10 @@ Project based on [Beat Open Source Project](https://github.com/thEpisode/beat) t
 * Web Scrapping to Mercado Libre
 * Fully configurable in /config/default.json
 * String matching with Jaro Wrinker proximity algorithm, is not perfect but is a good approach!
-* Plugin functions based (runs the scraper as a plugin)
+* Plug-in functions based (runs the scraper as a plugin)
 * Some software design techniques and patterns applied, like, dependency injection, abstract factory, plug-in pattern
-* Execute from remote servers with Docker, only deploy it and run on your cloud
+* Can be executed from remote servers with Docker, only deploy it and run on your cloud
+* To start reading the scrapper, you need to locate the /src/functions/startup/scrapping.function.js
 
 
 ## Documentation

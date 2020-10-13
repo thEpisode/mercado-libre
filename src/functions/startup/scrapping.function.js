@@ -22,8 +22,7 @@ function scrappingFunction (dependencies) {
   }
 
   return {
-    run,
-    scrapping
+    run
   }
 }
 
