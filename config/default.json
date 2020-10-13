@@ -6,23 +6,25 @@
   "BACKEND_SECRET": "zih9cVFnC0J0otOAFXrj",
   "FRONTEND_URI": "http://localhost:3500",
   "BACKEND_URI": "http://localhost:3500",
-  "BROWSER_PAGE_SELECTORS": {
-    "APP": ".app",
-    "QRCODE": "canvas",
-    "CONVERSATION": "#pane-side",
-    "CONVERSATIONITEM": "._2UaNq"
+  "BROWSER_PAGE_SELECTORS": {    
+    "PAGE_LOGO": ".nav-logo",
+    "PRODUCT_ITEM_CONTAINER": ".ui-search-layout__item",
+    "PRODUCT_ITEM_TITLE": ".ui-search-item__title",
+    "PRODUCT_ITEM_PRICE": ".price-tag-fraction",
+    "PAGE_NAVIGATION_ITEMS": ".andes-pagination__link.ui-search-link"
   },
   "BROWSER_PAGE_MAX_NAVIGATION_PAGES": 5,
-  "BROWSER_PAGE_PLUGINS": [
+  "BROWSER_PAGE_ORIGIN": "https://listado.mercadolibre.com.co/",
+  "BROWSER_PAGE_QUERY": "xiaomi",
+  "BROWSER_PAGE_SCRIPTS": [
     {
-      "name": "hello",
-      "path": "/src/client-scripts/hello-world.js"
+      "name": "botbus",
+      "path": "/src/client-scripts/bot-bus.js"
     }
   ],
   "BROWSER_OPTIONS": {
     "headless": false,
-    "devtools": true,
-    "product": "chrome"
+    "devtools": true
   },
   "CUSTOM_DEPENDENCIES": [
     {

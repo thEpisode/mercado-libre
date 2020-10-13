@@ -4,19 +4,24 @@ class BotController {
   constructor (dependencies) {
     this._dependencies = dependencies
     this._utilities = dependencies.utilities
-    this._controllers = dependencies.controllers
+    this._console = dependencies.console
   }
 
   async setupBot () {
     this.client = new ClientController({
       ...this._dependencies,
       ...{
-        browserSelectors: this._dependencies.config.BROWSER_PAGE_SELECTORS,
-        browserPlugins: this._dependencies.config.BROWSER_PAGE_PLUGINS,
-        browserConfig: {
-          maxNavigationPages: this._dependencies.config.BROWSER_PAGE_MAX_NAVIGATION_PAGES,
-          browserOptions: this._dependencies.config.BROWSER_OPTIONS
+        browser: {
+          selectors: this._dependencies.config.BROWSER_PAGE_SELECTORS,
+          scripts: this._dependencies.config.BROWSER_PAGE_SCRIPTS,
+          config: {
+            maxNavigationPages: this._dependencies.config.BROWSER_PAGE_MAX_NAVIGATION_PAGES,
+            options: this._dependencies.config.BROWSER_OPTIONS
+          },
+          origin: this._dependencies.config.BROWSER_PAGE_ORIGIN,
+          query: this._dependencies.config.BROWSER_PAGE_QUERY
         }
+
       }
     })
 
@@ -25,6 +30,10 @@ class BotController {
 
   async startScrapping () {
     await this.client.startSession()
+    const products = await this.client.getAllProducts()
+    const navigationLinks = await this.client.getAllNavigationLinks()
+    this._console.info(products)
+    this._console.info(navigationLinks)
   }
 }
 
